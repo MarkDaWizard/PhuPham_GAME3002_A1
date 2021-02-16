@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿//Phu Pham
+//101250748
+//GAME3002 Assignment 1
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +21,7 @@ public class BallTransform : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+	//Set Spawn Position for ball
         startPosition = transform.position;
 
     }
@@ -29,8 +34,9 @@ public class BallTransform : MonoBehaviour
 
 
 	//Kicking functionality
-     if (score > 0) 
+     if (score > 0) //Ball can only be kicked if score > 0
         {
+		//Ball can only be kicked once per spawn
 		if (Input.GetMouseButtonUp(0) && (IsKicked == false))
         	{
 	    
@@ -38,7 +44,7 @@ public class BallTransform : MonoBehaviour
 	    	rb.AddRelativeForce(0,  100,  1000);
 	    	IsKicked = true;
         	}
-	
+		//Respawning function
 		if (Input.GetMouseButtonUp(1))
 		{
 	     	rb.velocity = Vector3.zero;
@@ -58,7 +64,7 @@ public class BallTransform : MonoBehaviour
 
 
 
-    //Respawning & set speed to 0 
+    //Respawning & add score if goal
 	void OnTriggerEnter(Collider other)
 	{
 	     rb.velocity = Vector3.zero;
